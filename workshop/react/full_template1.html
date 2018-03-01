@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Hello damn World</title>
+    <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+  </head>
+  <body>
+    <div id="yeti"></div>
+    <script type="text/babel">
+
+        const rootElement = document.getElementById('yeti');
+        const Message = (props) => <div>{props.msg}</div>
+
+// jsx gonna create React.createElement first before it . generate to another form of action.
+
+              /*  {React.createElement(message, {msg: 'Hello World'})}
+                {React.createElement(message, {msg: 'Bye World'})} */
+
+        const element = (
+            <div className = "container">
+                    <Message msg="Helo World"></Message>
+            </div>
+        )
+
+      ReactDOM.render(
+        element,
+        rootElement
+      );
+
+    </script>
+  </body>
+</html>

@@ -1,0 +1,62 @@
+<body>
+
+        <style>
+                .box{
+          border: 1px solid #333;
+        }
+                .box--small{
+                    width: 60px;
+                    height: 60px;
+        
+                }
+            </style> 
+    <script src="https://unpkg.com/react@16.0.0/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@16.0.0/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/prop-types@15.6.0/prop-types.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6.26.0/babel.js"></script>
+    <div id="root"></div>
+
+    <script type="text/babel">
+
+    function Box(props){
+        return (
+            
+            <div
+                className = 'box box--small'
+                style= {{paddingLeft: 20}}
+                {...props}
+             />
+            
+
+        )
+    }
+
+
+
+const className =  'box box--small';
+const props = {
+    className,
+    style: {paddingLeft: 20},
+}
+
+//const element = (<div className="box box--small"  style={{paddingTop: '10%',}}>Hello World!</div>);
+
+const element = (
+    // <div>
+    //     <div {...props}> width world </div>
+    // </div>
+
+        <div>
+            <Box style={{backgroundColor: 'lightblue'}}>Small Box</Box>
+        </div>
+
+
+)
+
+
+ReactDOM.render(
+  element,
+  document.getElementById('root')
+)
+</script>
+</body>
