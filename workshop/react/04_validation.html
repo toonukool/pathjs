@@ -1,0 +1,62 @@
+<body>
+    <script src="https://unpkg.com/react@16.0.0/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@16.0.0/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/prop-types@15.6.0/prop-types.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6.26.0/babel.js"></script>
+    <div id="root"></div>
+    <br>
+    <div id="getti"></div>
+    <br>
+    <div id="tick"></div>
+    
+    <script type="text/babel">
+    function SayHello(props) {
+        return (
+            <div>
+                {props.firstName ? (<div>Hello {props.firstName} {props.lastName}</div>)
+                :(<div>No Message, please take a look at a log control.</div>)
+
+                }
+            </div>
+        )
+
+    }
+
+    SayHello.propTypes = {
+        firstName: PropTypes.string.isRequired,
+        lastName: PropTypes.string,
+    }
+
+
+    ReactDOM.render(
+        <SayHello firstName={null}  lastName={'true'}/>
+        ,document.getElementById('root')
+
+
+    )
+
+       ReactDOM.render(
+        <SayHello firstName={'New'}  lastName={'true'}/>
+        ,document.getElementById('getti')
+
+
+    )
+
+
+    ////section 7 rerender a react application at a time.
+function  tick(){
+    const rootElement = document.getElementById('tick');
+    const time = new Date().toLocaleTimeString();
+    const element = <div>It is  {time} </div>
+    ReactDOM.render(element, rootElement);
+}
+tick();
+setInterval(tick,1000);
+
+    </script>
+
+    <script type="text/javascript">
+
+        
+    </script>
+    </body>
