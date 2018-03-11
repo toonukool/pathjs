@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Hello damn World</title>
+    <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+  </head>
+  <body>
+    <div id="yeti"></div>
+    <div id="root"></div>
+    <style>
+      .container{
+
+          color:black;
+          font-size: 40px;
+          background-color:yellow; 
+      }
+    </style>
+
+    <script type="text/babel">
+      class NameForm extends React.Component{
+          handleSubmit = event => {
+              event.preventDefault();
+              //first method to retrieve data from form.yo
+
+              //alert(event.target[0].value);
+
+              //the last way is to use ref node.
+
+              alert(this.inputNode.value);
+
+          }
+
+          render(){
+            return (
+              <form onSubmit={this.handleSubmit}>
+                <label>
+                  
+                  <input type="text"  name="username" ref={node => (this.inputNode = node)} />
+                </label>
+                <button type="submit">Submit</button>
+              </form>
+            )
+          }
+      }
+
+
+      ReactDOM.render(
+        <NameForm />, 
+        document.getElementById('root'),
+
+      )
+    </script>
+
+    <script type="text/babel">
+
+        const rootElement = document.getElementById('yeti');
+        const Message = (props) => <div>{props.msg}</div>
+
+// jsx gonna create React.createElement first before it . generate to another form of action.
+
+              /*  {React.createElement(message, {msg: 'Hello World'})}
+                {React.createElement(message, {msg: 'Bye World'})} */
+
+        const element = (
+            <div className = "container">
+                    <Message msg="Helo World?"></Message>
+            </div>
+        )
+
+      ReactDOM.render(
+        element,
+        rootElement
+      );
+
+    </script>
+  </body>
+</html>
