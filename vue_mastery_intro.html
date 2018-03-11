@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vue Tester of the World.</title>
+</head>
+<body>
+    <div id="app">
+        <h2>{{ product }} are in stock.</h2>
+    </div>
+    <div id="app2">
+        <h2>Everything is so fast in Vue.js</h2>
+        <ul>
+            <!--<li v-for="item in products">-->
+                <!--{{ item }}-->
+            <!--</li>-->
+            <li v-for="item in products">
+                <input type="number" v-model.number="item.quantity">
+                {{ item.quantity }}  {{ item.name }}
+                <span v-if="item.quantity === 0" style="color: red;"> - out of stock</span>
+                <button @click="item.quantity += 1">
+                    add
+                </button>
+            </li>
+        </ul>
+        <br/>
+        Total amount is {{ totalProducts }}
+    </div>
+    <script src="https://unpkg.com/vue"></script>
+    <script>
+        const app = new Vue ({
+            el: '#app',
+            data : {
+                product : 'Boots'
+            }
+        })
+    </script>
+    <script>
+        const app2 = new Vue({
+            el: '#app2',
+            data : {
+                products : [
+                // 'Banner',
+                // 'No Money Works',
+                // 'All Stars',
+                // 'Weekend',
+                // 'Props where'
+                ]
+            },
+            computed: {
+                totalProducts () {
+                     return this.products.reduce((sum,product) => {
+                         return sum + product.quantity
+                     },0)
+                }
+            },
+            created(){
+                fetch('https://api.myjson.com/bins/74l63')
+                    .then(response => response.json())
+                    .then(json => {
+                        this.products = json.products
+                })
+            }
+
+        })
+    </script>
+</body>
+</html>
