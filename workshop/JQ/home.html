@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Jake Cool .</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+</head>
+<body>
+    <div class="ele1"></div>
+    
+    <input placeholder="text input here" type="text" name="text-ele1" id="text-ele1">
+    <button type="button" class="clicked-btn">OK</button>
+
+    <button type="button" class="ajax-btn">AJAX</button>
+
+    <script>
+    
+    $(".ele1").text("cool");
+
+    var element1 = $(".ele1");
+
+    $(".clicked-btn").click(
+        function(){
+
+            var name = $("#text-ele1").val(); 
+
+            element1.text("windo "+name);
+            element1.css("color","#fff000");
+
+
+        }
+    );
+
+
+    
+
+
+    
+    </script>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

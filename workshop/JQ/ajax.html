@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Ajax</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+</head>
+<body>
+    <button type="button" class="ajax-btn">AJAX</button>
+    <div class="aj"></div>
+
+
+    <script>
+        
+        $('.ajax-btn').click(function(){
+
+            $('.aj').text('loading...');
+
+            $.ajax(
+                {
+                    type: "GET",
+                    url: "https://api.meetup.com/2/cities",
+                    success: function(data){
+
+                        for(var x = 0; x <= )
+
+
+                        $('.aj').text(JSON.stringify(data.results[0].city));
+                    },
+                    dataType: 'jsonp',
+                }
+            );
+
+
+        });
+    
+    </script>
+
+
+    <script src="js/script.js"></script>
+</body>
+</html>

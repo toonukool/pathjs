@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Exe9.</title>
+</head>
+<body>
+    <button class="btn" type="button">ok</button>
+
+
+    <div class="text">Replace me!!</div>
+
+    <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script>
+
+$(document).ready(function(){
+$.ajax({
+
+    type: "GET",
+    url: "http://www.reddit.com/r/aww/search.json?q=horse&restrict_sr=true",
+    success: function(resp){
+        //$('.text').text(JSON.stringify(data));
+        //console.log(data.data.children.length+"done well");
+        $('.text').html('');
+        for(var i = 0; i < resp.data.children.length; i++){
+            
+            console.log(resp.data.children[i].data.id+" no. "+i);
+            console.log(resp.data.children[i].data.thumbnail+" no. "+i);
+
+            var image = "<img src='" +resp.data.children[i].data.thumbnail+ "'/>";
+
+            $('.text').append(image);
+            
+        }
+    }
+});
+
+});
+
+
+        $('.btn').click(function(){
+
+            $('.text').text('loading....');
+
+            $.ajax({
+
+                type: "GET",
+                url: "http://www.reddit.com/r/aww/search.json?q=puppy&restrict_sr=true",
+                success: function(data){
+                    //$('.text').text(JSON.stringify(data));
+                    //console.log(data.data.children.length+"done well");
+                    
+                    for(var i = 0; i < data.data.children.length; i++){
+                        
+                        //$('.text').text(JSON.stringify(response.data.children[i]));
+
+                        //console.log(data.data.children[i]);
+
+                        
+
+
+                    }
+                }
+            });
+
+        });
+
+        
+
+    </script>
+
+
+</body>
+</html>
