@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jQuery .</title>
+</head>
+<body>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<div class="cls1"></div>
+<p></p>
+
+<button class="alert-btn" type="button">
+    Click me?
+</button>
+
+<script type="text/javascript">
+
+    $(".cls1").text("cool");
+
+    $(document).ready(function(){
+        $(".cls1").click(function(){
+           // $(this).hide();
+           $(this).css('background-color','orange');
+        });
+    });
+
+    var x = 1;
+
+    $(".alert-btn").click(
+        function(){
+            alert("clicked!!!");
+            x = x + 1;
+            console.log(x);
+    }
+    );
+
+    var x = $('.cls1').text('magic2k')
+    //x.css('color','#aafd22');
+
+
+    
+
+    $(document).ready(function(){
+        
+
+
+    });
+
+</script>
+</body>
+</html>

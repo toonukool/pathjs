@@ -9,7 +9,8 @@
 <body>
     <input type="text" name="search-box" id="search-box" />
     <button class="btn" type="button">ok</button>
-
+    <p></p>
+    <br />
 
     <div class="text">Replace me!!</div>
 
@@ -47,6 +48,11 @@ $.ajax({
 
             var x = $('#search-box').val();
             //alert(x);
+
+            if(x === null){
+
+                x = 'dog';
+            }
 
             $.ajax({
 
